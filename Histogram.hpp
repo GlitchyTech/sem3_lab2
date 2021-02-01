@@ -1,12 +1,8 @@
 #pragma once
-using namespace std;
 
 template <class T>
 class Histogram {
-private:
-    Dictionary<int, int>* dict;
-    int (*Get_int_value)(T);
-    int (*cmp)(Tpair_for_dict<int, int>, Tpair_for_dict<int, int>);
+
 public:
     Histogram(int (*Get_int_value)(T),
         int (*cmp)(Tpair_for_dict<int, int>, Tpair_for_dict<int, int>)) {
@@ -54,8 +50,8 @@ public:
             if ((i - min) % range == 0) {
                 if (dict->ContainsKey(i)) {
                     summary_amount += dict->Get(i);
-                    //    dict->Remove(i);
-                } //чтобы не выводилось min - 0
+                    //dict->Remove(i);
+                }
                 even_dict->Add(j, summary_amount);
                 j = j + range;
                 summary_amount = 0;
@@ -63,7 +59,7 @@ public:
             else {
                 if (dict->ContainsKey(i)) {
                     summary_amount += dict->Get(i);
-                    //  dict->Remove(i);
+                    //dict->Remove(i);
                 }
             }
         }
@@ -80,13 +76,13 @@ public:
             if (i < seq->Get(j)) {
                 if (dict->ContainsKey(i)) {
                     summary_amount += dict->Get(i);
-                    //   dict->Remove(i);
+                    //dict->Remove(i);
                 }
             }
             else {
                 if (dict->ContainsKey(i)) {
                     summary_amount += dict->Get(i);
-                    //   dict->Remove(i);
+                    //dict->Remove(i);
                 }
                 uneven_dict->Add(seq->Get(j), summary_amount);
                 j++;
@@ -98,4 +94,10 @@ public:
         uneven_dict->Add(seq->GetLast(), summary_amount);
         return uneven_dict;
     }
+
+private:
+    Dictionary<int, int>* dict;
+    int (*Get_int_value)(T);
+    int (*cmp)(Tpair_for_dict<int, int>, Tpair_for_dict<int, int>);
+
 };

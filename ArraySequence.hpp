@@ -1,12 +1,12 @@
 #pragma once
+
+
 #include "DynamicArray.hpp"
 #include "Sequence.hpp"
 
 
 template <class T>
 class ArraySequence : public Sequence <T> {
-private:
-    DynamicArray <T>* MyArray;
 public:
     ArraySequence() {
         this->MyArray = new DynamicArray<T>();
@@ -96,5 +96,9 @@ public:
         }
         return newconc;
     }
+
+private:
+
+    DynamicArray <T>* MyArray;
 
 };

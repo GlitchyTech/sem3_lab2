@@ -1,11 +1,10 @@
 #pragma once
+
 #include "Dictionary.hpp"
 
 template <class T>
 class Sparce_vector {
-private:
-    Dictionary<int, T>* dict;
-    int size;
+
 public:
     Sparce_vector(T* vector, int size,
         int (*cmp)(Tpair_for_dict<int, T>, Tpair_for_dict<int, T>)) {
@@ -44,6 +43,10 @@ public:
     void Print() {
         dict->Print();
     }
+
+private:
+    Dictionary<int, T>* dict;
+    int size;
 
 };
 

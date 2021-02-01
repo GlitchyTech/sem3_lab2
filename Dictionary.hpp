@@ -1,4 +1,5 @@
 #pragma once
+
 #include "BST.hpp"
 
 template<class Tkey, class Telement>
@@ -48,8 +49,8 @@ public:
         Tpair_for_dict<Tkey, Telement> for_contain_pair;
         for_contain_pair.key = input_key;
         if (tree->search(for_contain_pair))
-            return 1;
-        return 0;
+            return true;
+        return false;
     }
 
     void Add(Tkey input_key, Telement input_element) {

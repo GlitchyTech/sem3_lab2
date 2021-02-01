@@ -1,8 +1,8 @@
 #pragma once
+
 #include <stdexcept>
-#include <iostream>
+
 constexpr auto IndexOutOfRangeEx = "Index out of range";
-using namespace std;
 
 template <class T>
 class DynamicArray {
@@ -43,7 +43,7 @@ public:
     }
 
     T Get(int index) {
-        if (index < 0 || index >= this->size) throw out_of_range(IndexOutOfRangeEx);
+        if (index < 0 || index >= this->size) throw std::out_of_range(IndexOutOfRangeEx);
         return this->items[index];
     }
 
@@ -52,7 +52,7 @@ public:
     }
 
     void Set(int index, T value) {
-        if (index < 0 || index >= this->size) throw out_of_range(IndexOutOfRangeEx);
+        if (index < 0 || index >= this->size) throw std::out_of_range(IndexOutOfRangeEx);
         this->items[index] = value;
     }
 
@@ -75,7 +75,7 @@ public:
     }
 
     void delete_i(int index) {
-        if (index < 0 || index >= this->size) throw out_of_range(IndexOutOfRangeEx);
+        if (index < 0 || index >= this->size) throw std::out_of_range(IndexOutOfRangeEx);
         const int NewSize = this->size - 1;
         T* tmp = new T[NewSize];
         for (int i = 0; i < NewSize; i++) {

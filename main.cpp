@@ -1,4 +1,4 @@
-﻿#include "interface_lab2.hpp"
+﻿#include "Interface.hpp"
 
 
 int main()

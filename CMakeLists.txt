@@ -3,7 +3,7 @@ project(sem3_lab2)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(sem3_lab2 ArraySequence.hpp BST.hpp Dictionary.hpp DynamicArray.hpp Histogram.hpp interface_lab2.hpp
-        main.cpp LinkedList.hpp ListSequence.hpp my_sorts.hpp Search_often_sub.hpp Sequence.hpp SortedSequence.hpp
-               Sparce_vector.hpp test_BST.hpp test_dictionary.hpp test_histogram.hpp test_search_often_sub.hpp
-               test_sorted_seq.hpp test_sorts.hpp test_sparce_vector.hpp)
+add_executable(sem3_lab2 ArraySequence.hpp BST.hpp Dictionary.hpp DynamicArray.hpp Histogram.hpp Interface.hpp
+        main.cpp LinkedList.hpp ListSequence.hpp Sorts.hpp SearchOftenSub.hpp Sequence.hpp SortedSequence.hpp
+               Sparce_vector.hpp testBST.hpp testDictionary.hpp testHistogram.hpp testSearchOftenSub.hpp
+        testSortedSeq.hpp testSorts.hpp testSparceVector.hpp)

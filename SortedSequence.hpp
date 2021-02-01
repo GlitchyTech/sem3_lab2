@@ -1,12 +1,9 @@
 #pragma once
-#include "my_sorts.hpp"
-using namespace std;
+#include "Sorts.hpp"
 
 template<class T>
 class SortedSequence {
-private:
-    Sequence<T>* seq;
-    int (*cmp)(T, T);
+
 public:
     SortedSequence(Sequence<T>* (*sort)(Sequence<T>*, int (*)(T, T)),
         Sequence<T>* not_sorted, int (*cmp)(T, T)) {
@@ -59,8 +56,8 @@ public:
 private:
     SortedSequence(Sequence<T>* seq, int (*cmp)(T,T)) {
         this->seq = seq;
-        this->cmp = cmp;              // � �������, ����� � ��� � ����������� ��������� 
-    }                                 // ������� � ������ ��� �� ����������� ���
+        this->cmp = cmp;
+    }
 
 public:
     SortedSequence<T>* GetSubSequence(int start, int end) {
@@ -72,26 +69,26 @@ public:
 
     void Add(T item) {
         int left = 0;
-        int needed = -1;                    // ������ �����������������
+        int needed = -1;
         int right = seq->GetLength() - 1;
         while (left < right) {
 
-            int mid =  left + (right - left) / 2;   //����� ����� ���� �������
+            int mid =  left + (right - left) / 2;
 
-            if (this->cmp(item, seq->Get(mid)))  // ���� ����� ������ ��������, �� �������
-                left = mid + 1;                   // �� ������ �����
+            if (this->cmp(item, seq->Get(mid)))
+                left = mid + 1;
 
-            else if (this->cmp(seq->Get(mid), item))    // ���� ����� ������ ��������, �� 
-                right = mid ;            // ������� ����� �����
+            else if (this->cmp(seq->Get(mid), item))
+                right = mid ;
 
             else {
-                needed = mid;               // ����� ����� ����� seq->Get(mid)
-                right = left - 1;           // ����� ��������� ����
+                needed = mid;
+                right = left - 1;
             }            
         }
-        if (needed == -1)               // �� ����� ������� �� ��������� ������  
+        if (needed == -1)
             seq->InsertAt(item, left);   
-        else                              // ����� ������� � ����� �� ���������(��� �����)
+        else
             seq->InsertAt(item, needed);
     }
    
@@ -99,5 +96,9 @@ public:
     void print() {
         seq->print();
     }
+
+private:
+    Sequence<T>* seq;
+    int (*cmp)(T, T);
 
 };
